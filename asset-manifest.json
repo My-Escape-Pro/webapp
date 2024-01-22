@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/static/js/main.39d71335.js",
+    "static/js/787.fb880791.chunk.js": "/static/js/787.fb880791.chunk.js",
+    "static/media/avis.jpg": "/static/media/avis.dc63beaba21a5d7a0224.jpg",
+    "static/media/concept.jpg": "/static/media/concept.1f129794dabc0434f454.jpg",
+    "static/media/epsilon.png": "/static/media/epsilon.3621d6c7dd2466b9ae5d.png",
+    "static/media/famille_morrow.png": "/static/media/famille_morrow.99baf3bf890cb3bb89fd.png",
+    "static/media/wooden_self.png": "/static/media/wooden_self.3ca7a2894aebbfd187cc.png",
+    "static/media/classement.jpg": "/static/media/classement.c4e061bb84008a9a6603.jpg",
+    "static/media/catalog.jpg": "/static/media/catalog.3d6633fb62c2a56489c5.jpg",
+    "index.html": "/index.html",
+    "main.39d71335.js.map": "/static/js/main.39d71335.js.map",
+    "787.fb880791.chunk.js.map": "/static/js/787.fb880791.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.39d71335.js"
+  ]
+}
