@@ -11,12 +11,12 @@ export default function Catalog() {
         [
             {name: 'Epsilon', img: ScenarioEpsilon},
             {name: 'Famille Morrow', img: ScenarioFamilleMorrow},
-            {name: 'Epsilon', img: ScenarioEpsilon},
-            {name: 'Famille Morrow', img: ScenarioFamilleMorrow},
+            {name: 'Epsilon2', img: ScenarioEpsilon},
+            {name: 'Famille Morrow2', img: ScenarioFamilleMorrow},
         ],
         [
-            {name: 'Epsilon', img: ScenarioEpsilon},
-            {name: 'Famille Morrow', img: ScenarioFamilleMorrow},
+            {name: 'Epsilon3', img: ScenarioEpsilon},
+            {name: 'Famille Morrow3', img: ScenarioFamilleMorrow},
         ],
         [
             {},
@@ -26,8 +26,8 @@ export default function Catalog() {
     return (
         <section>
             <Stack gap={5} mt={'50px'}>
-                {SCENARIO_LIST.map(self =>
-                    <Stack alignItems={'center'}>
+                {SCENARIO_LIST.map((self, index) =>
+                    <Stack key={'self ' + index} alignItems={'center'}>
                         <Stack
                             flexDirection='row'
                             justifyContent={self.length === 4 ? 'space-between' : 'start'}
@@ -37,10 +37,17 @@ export default function Catalog() {
                         >
                             {self.map(scenario =>
                                 <Stack
+                                    key={'Scenario ' + scenario.name}
                                     sx={{
                                         position: 'relative',
                                         bottom: '-6px',
-                                        '&:hover > img': {bottom: '10px!important', boxShadow: '0px 5px 50px 5px white'}
+                                        '&:hover': {
+                                            cursor: 'pointer',
+                                            img: {
+                                                bottom: '10px!important',
+                                                boxShadow: '0px 5px 50px 5px white'
+                                            }
+                                        }
                                     }}
                                 >
                                     {scenario.img &&
