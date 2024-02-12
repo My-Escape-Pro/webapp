@@ -27,20 +27,20 @@ export default function Home() {
             <Stack alignItems={'center'} justifyContent={'center'} minHeight={'calc(100vh - 200px)'} mt={'50px'}>
                 <Stack alignItems={'center'} flexDirection='row' gap={4} width={'100%'}>
                     <Stack sx={boxStyle}>
-                        <img src={ConceptBackground} width={'115%'} loading="lazy"/>
+                        <img src={ConceptBackground} alt={'Concept img'} width={'115%'} loading="lazy"/>
                         {/*<Skeleton variant="rectangular" width={'100%'} height={'300px'} />*/}
                         {/*<Button>Concept</Button>*/}
                     </Stack>
                     <Stack sx={boxStyle}>
-                        <img src={CatalogBackground} width={'115%'}/>
+                        <img src={CatalogBackground} alt={'Catalogue img'} width={'115%'}/>
                         {/*<Button>Catalogue</Button>*/}
                     </Stack>
                     <Stack sx={boxStyle}>
-                        <img src={ClassementBackground} width={'115%'}/>
+                        <img src={ClassementBackground} alt={'Classement img'} width={'115%'}/>
                         {/*<Button>Classement</Button>*/}
                     </Stack>
                     <Stack sx={boxStyle}>
-                        <img src={AvisBackground} width={'115%'}/>
+                        <img src={AvisBackground} alt={'Avis img'} width={'115%'}/>
                         {/*<Button>Avis</Button>*/}
                     </Stack>
                 </Stack>

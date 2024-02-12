@@ -2,7 +2,6 @@
 import {useEffect, useState} from "react";
 
 import {
-    Box,
     Card,
     CardActions,
     CardContent,
@@ -10,7 +9,6 @@ import {
     Collapse,
     Divider,
     IconButton,
-    LinearProgress,
     Slider,
     Stack, Tooltip,
     Typography
@@ -20,9 +18,7 @@ import {
     PlayArrowRounded,
     SubtitlesOffRounded,
     SubtitlesRounded,
-    VolumeDown,
     VolumeDownRounded,
-    VolumeUp,
     VolumeUpRounded
 } from "@mui/icons-material";
 

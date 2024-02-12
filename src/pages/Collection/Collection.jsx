@@ -1,10 +1,8 @@
 
+import {Link} from "react-router-dom";
 import {Stack} from "@mui/material";
 import WoodenShelf from '../../assets/img/wooden_self.png'
-
 import ScenarioEpsilon from '../../assets/img/scenario/epsilon.png'
-import ScenarioFamilleMorrow from '../../assets/img/scenario/famille_morrow.png'
-import {Link} from "react-router-dom";
 
 export default function Collection() {
 
