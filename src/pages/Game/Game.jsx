@@ -21,13 +21,13 @@ import regleDuJeu from "../../assets/docs/Regle_du_jeu.pdf";
 
 const ELEMENT_LIST = [
     {title: "Enregistrement J820", type: 'audio', url: enregistrementJ820Epsilon},
-    {title: "Note d'Épsilon", type: 'pdf', url: noteEpsilon},
-    {title: "Carnet d'équipage", type: 'pdf', password: "SJTWE", url: carnetEquipage},
-    {title: "Rapport de maintenance", type: 'pdf', password: "2050100", url: rapportDeMaintenance},
+    {title: "Note d'Épsilon", type: 'pdf', orientation: 'portrait', url: noteEpsilon},
+    {title: "Carnet d'équipage", type: 'pdf', password: "SJTWE",  orientation: 'landscape', url: carnetEquipage},
+    {title: "Rapport de maintenance", type: 'pdf', password: "2050100", orientation: 'portrait', url: rapportDeMaintenance},
     {title: "Vidéo Elliot boite mère", type: 'video', password: "11GG258J", url: "https://www.youtube-nocookie.com/embed/rttbzHUjE90?si=tQCwyEArLTwllNLV"},
     {title: "Enregistrement audio infirmerie 1", type: 'audio', password: "Williams", url: enregistrementAudioInfirmerie1},
     {title: "Enregistrement audio infirmerie 2", type: 'audio', password: "2D5G4D", url: enregistrementAudioInfirmerie2},
-    {title: "Email de williams", type: 'pdf', password: "13-3", url: emailDeWilliams},
+    {title: "Email de williams", type: 'pdf', password: "13-3",  orientation: 'portrait', url: emailDeWilliams},
     {title: "Vidéo caché de Williams", type: 'video', password: "HELP", url: "https://www.youtube-nocookie.com/embed/HjlC83lJNHA?si=1rHiQcZnLSvJxm4L"},
     {title: "Capsule", type: 'video', password: "547", url: "https://www.youtube-nocookie.com/embed/jE3DtrDsQVo?si=xlIqwf_SMnHX982_"},
 ];
@@ -69,7 +69,7 @@ function StartFiles() {
 
     return(
         <>
-            <PDFViewer pdfFile={regleDuJeu}/>
+            <PDFViewer url={regleDuJeu} orientation={'portrait'}/>
             <iframe
                 width="100%" height="400px" src="https://www.youtube-nocookie.com/embed/8Zs51OlfU-A?si=ZUYqe2Ca02PkIKQg"
                 title="YouTube video player" frameBorder="0"
@@ -126,7 +126,7 @@ function AllFiles() {
             </Stack>
 
             <Stack>
-                {(displayDocument && displayDocument.type === 'pdf') && <PDFViewer pdfFile={displayDocument.url} />}
+                {(displayDocument && displayDocument.type === 'pdf') && <PDFViewer url={displayDocument.url} orientation={displayDocument.orientation} />}
                 {(displayDocument && displayDocument.type === 'audio') && <AudioPlayer audioFile={displayDocument} />}
                 {(displayDocument && displayDocument.type === 'video') && <VideoPlayer videoFile={displayDocument} />}
             </Stack>
@@ -137,6 +137,6 @@ function AllFiles() {
 function InvestigationReport() {
 
     return(
-        <PDFViewer pdfFile={rapportEnquete}/>
+        <PDFViewer url={rapportEnquete} orientation={'portrait'}/>
     );
 }

@@ -8,7 +8,7 @@ import context from "../../assets/docs/Context_Epsilon.pdf";
 export default function Presentation() {
     return (
         <Stack alignItems={'center'} justifyContent={'center'} minHeight={'calc(100vh - 200px)'} gap={'30px'}>
-            <PDFViewer pdfFile={context} />
+            <PDFViewer url={context} orientation={'portrait'} />
             <Link to={'/game'}>
                 <Button variant='contained' color='secondary'>C'est partie !</Button>
             </Link>

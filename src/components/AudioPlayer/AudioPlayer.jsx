@@ -35,25 +35,25 @@ export default function AudioPlayer({ audioFile }) {
         } else {
             audio.pause();
         }
-    }, [playing]);
+    }, [playing, audio]);
 
     useEffect(() => {
         audio.volume = volume / 100;
-    }, [volume]);
+    }, [volume, audio]);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
             setCurrentTime((audio.currentTime / audio.duration) * 100);
         }, 10);
         return () => clearInterval(intervalId);
-    }, [currentTime]);
+    }, [currentTime, audio]);
 
     useEffect(() => {
         audio.addEventListener('ended', () => setPlaying(false));
         return () => {
             audio.removeEventListener('ended', () => setPlaying(false));
         };
-    }, []);
+    }, [audio]);
 
     return (
         <Card sx={{display: 'flex', flexDirection: 'column'}}>

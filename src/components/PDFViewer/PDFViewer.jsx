@@ -1,10 +1,11 @@
 
 import {useState} from "react";
-import {Document, Page} from 'react-pdf';
+import {Document, Page, pdfjs} from 'react-pdf';
 import {Box, Button, Divider, Stack, Typography} from "@mui/material";
 import {ArrowBackIosRounded, ArrowForwardIosRounded} from "@mui/icons-material";
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
-export default function PDFViewer({pdfFile}) {
+export default function PDFViewer({url, orientation}) {
     const [totalPage, setTotalPage] = useState(0)
     const [numPage, setNumPage] = useState(0);
 
@@ -44,11 +45,9 @@ export default function PDFViewer({pdfFile}) {
                     </Button>
                 </Stack>
             }
-            <Box width={'595px'}>
-                <Document file={pdfFile} onLoadSuccess={onDocumentLoadSuccess}>
-                    <Page pageNumber={numPage} renderTextLayer={false} renderAnnotationLayer={false}/>
-                </Document>
-            </Box>
+            <Document file={url} onLoadSuccess={onDocumentLoadSuccess}>
+                <Page pageNumber={numPage} orientation={orientation} renderTextLayer={false} renderAnnotationLayer={false}/>
+            </Document>
         </Stack>
     );
 }

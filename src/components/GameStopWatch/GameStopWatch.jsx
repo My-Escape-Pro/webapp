@@ -67,7 +67,7 @@ function FullScreenModal({ open, close, hours, minutes, seconds}) {
             <Stack width={'100%'} height={'100%'} alignItems={'center'} justifyContent={'center'} gap={4}>
                 <Typography fontSize={'3rem'}>C'est l'heure de la pause !</Typography>
                 <Typography fontSize={'2rem'}>
-                    Vous temps =
+                    Votre temps =
                     {' ' + hours.toString().padStart(2, "0")}
                     :{minutes.toString().padStart(2, "0")}
                     :{seconds.toString().padStart(2, "0")}
