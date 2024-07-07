@@ -1,18 +1,17 @@
 {
   "files": {
-    "main.js": "/static/js/main.58f244f3.js",
+    "main.css": "/static/css/main.72d3e8c5.css",
+    "main.js": "/static/js/main.3deb1548.js",
     "static/js/592.c23b2476.chunk.js": "/static/js/592.c23b2476.chunk.js",
     "static/media/3_Carnets_de_equipage.pdf": "/static/media/3_Carnets_de_equipage.39d6d89fb7fe9d8baa08.pdf",
     "static/media/epsilon.png": "/static/media/epsilon.3621d6c7dd2466b9ae5d.png",
     "static/media/famille_morrow.png": "/static/media/famille_morrow.99baf3bf890cb3bb89fd.png",
     "static/media/1_Enregistrement_J820.mp3": "/static/media/1_Enregistrement_J820.89c804a72f7ae48e6d80.mp3",
-    "static/media/wooden_self.png": "/static/media/wooden_self.3ca7a2894aebbfd187cc.png",
     "static/media/8_Email_de_williams.pdf": "/static/media/8_Email_de_williams.9cfaed1648255a3dcf0f.pdf",
     "static/media/7_audio_infirmeie_2_V3.mp3": "/static/media/7_audio_infirmeie_2_V3.33e096069f481c3fab58.mp3",
     "static/media/pdf.worker.min.js": "/static/media/pdf.worker.min.36acaa88da348cdece83.js",
     "static/media/6_audio_infirmerie_1_V3.mp3": "/static/media/6_audio_infirmerie_1_V3.eeb9743d00d13ba94740.mp3",
     "static/media/Regle_du_jeu.pdf": "/static/media/Regle_du_jeu.62f7685b6925b58a698c.pdf",
-    "static/media/Context_Epsilon.pdf": "/static/media/Context_Epsilon.e377f51678f488825f01.pdf",
     "static/media/Rapport_enquête.pdf": "/static/media/Rapport_enquête.d2ba223625de587b605a.pdf",
     "static/media/concept.png": "/static/media/concept.935646398873f89ebf59.png",
     "static/media/2_Notes_Epsilon.pdf": "/static/media/2_Notes_Epsilon.5364050457008c5046f4.pdf",
@@ -22,10 +21,12 @@
     "static/media/avis.png": "/static/media/avis.f9ddc9c6caca382df808.png",
     "static/media/logo_inline.png": "/static/media/logo_inline.683a5f582f0fd7cdb765.png",
     "index.html": "/index.html",
-    "main.58f244f3.js.map": "/static/js/main.58f244f3.js.map",
+    "main.72d3e8c5.css.map": "/static/css/main.72d3e8c5.css.map",
+    "main.3deb1548.js.map": "/static/js/main.3deb1548.js.map",
     "592.c23b2476.chunk.js.map": "/static/js/592.c23b2476.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.58f244f3.js"
+    "static/css/main.72d3e8c5.css",
+    "static/js/main.3deb1548.js"
   ]
 }
