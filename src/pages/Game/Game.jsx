@@ -1,12 +1,12 @@
 
 import {useState} from "react";
-import PDFViewer from "../../components/PDFViewer/PDFViewer";
+import PDFViewers from "../../components/PDFViewer/PDFViewers";
 import PasswordFile from "../../components/PasswordModal/PasswordFile";
 import AudioPlayer from "../../components/AudioPlayer/AudioPlayer";
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 import GameStopWatch from "../../components/GameStopWatch/GameStopWatch";
 
-import {Stack, Tab, Tabs, ToggleButton, ToggleButtonGroup} from "@mui/material";
+import {Box, Stack, Tab, Tabs} from "@mui/material";
 import {LockRounded} from "@mui/icons-material";
 
 import enregistrementJ820Epsilon from "../../assets/docs/1_Enregistrement_J820.mp3"
@@ -40,28 +40,27 @@ export default function Game() {
     };
 
     return (
-        <section>
-            <Stack gap={4}>
-                <Stack width={'100%'} height={'50px'} sx={{backgroundColor: '#FFFFFF'}}>
-                    <ToggleButtonGroup
-                        fullWidth
-                        color="secondary"
-                        value={alignment}
-                        exclusive
-                        onChange={handleMenuChange}
+        <>
+            <Stack component={'section'} gap={2} position='absolute' left={0} right={0} mx={4}>
+                <Box width={'100%'} sx={{backgroundColor: 'transparent', borderBottom: 1, borderColor: 'fourth.light'}}>
+                    <Tabs variant={'fullWidth'} value={alignment} onChange={handleMenuChange} centered={true}
+                    sx={{
+                        '& .MuiTabs-indicator': {color: 'white'}
+                    }}
                     >
-                        <ToggleButton value="start">Début</ToggleButton>
-                        <ToggleButton value="elements">Elements</ToggleButton>
-                        <ToggleButton value="report">Rapport</ToggleButton>
-                    </ToggleButtonGroup>
+                        <Tab label="Début" value={'start'} />
+                        <Tab label="Fichiers" value={'files'} />
+                        <Tab label="Rapport" value={'report'} />
+                    </Tabs>
+                </Box>
+                <Stack flexDirection='row' gap={4} alignItems={'center'} height={'calc(100vh - 226px)'}>
+                    {alignment === "start" && <StartFiles/>}
+                    {alignment === "files" && <AllFiles/>}
+                    {alignment === "report" && <InvestigationReport/>}
                 </Stack>
-
-                {alignment === "start" && <StartFiles/>}
-                {alignment === "elements" && <AllFiles/>}
-                {alignment === "report" && <InvestigationReport/>}
             </Stack>
             <GameStopWatch />
-        </section>
+        </>
     );
 }
 
@@ -69,7 +68,7 @@ function StartFiles() {
 
     return(
         <>
-            <PDFViewer url={regleDuJeu} orientation={'portrait'}/>
+            <PDFViewers url={regleDuJeu} orientation={'portrait'}/>
             <iframe
                 width="100%" height="400px" src="https://www.youtube-nocookie.com/embed/8Zs51OlfU-A?si=ZUYqe2Ca02PkIKQg"
                 title="YouTube video player" frameBorder="0"
@@ -99,34 +98,33 @@ function AllFiles() {
     return (
         <>
             <PasswordFile open={passwordModal} close={() => setPasswordModal(false)} file={selectedDocument} setDisplayDocument={setDisplayDocument}/>
-            <Stack width={'100%'}>
-                <Tabs
-                    value={displayDocument}
-                    onChange={handleFileChange}
-                    variant="scrollable"
-                    allowScrollButtonsMobile
-                    scrollButtons="auto"
-                    indicatorColor='secondary'
-                    textColor={'secondary'}
-                    sx={{
-                        '& .MuiTabs-scrollButtons': { bgcolor: 'fourth.main' }
-                    }}
-                >
-                    {ELEMENT_LIST.map(element =>
-                        <Tab
-                            key={'File ' + element.title}
-                            label={element.title}
-                            value={element}
-                            icon={element.password && <LockRounded />}
-                            iconPosition={'bottom'}
-                            sx={{width: '150px', height: '150px', bgcolor: 'fourth.main', margin: '0 5px'}}
-                        />
-                    )}
-                </Tabs>
-            </Stack>
 
-            <Stack>
-                {(displayDocument && displayDocument.type === 'pdf') && <PDFViewer url={displayDocument.url} orientation={displayDocument.orientation} />}
+            <Tabs
+                value={displayDocument}
+                onChange={handleFileChange}
+                orientation={'vertical'}
+                variant="scrollable"
+                scrollButtons={true}
+                sx={{
+                    width: '170px', height: "100%",
+                    '& .MuiTabs-scrollButtons': { bgcolor: 'fourth.dark', color: 'white', margin: '10px 0' },
+                    '& .MuiTabs-scrollButtons svg': { fontSize: '2rem' }
+                }}
+            >
+                {ELEMENT_LIST.map(element =>
+                    <Tab
+                        key={'File ' + element.title}
+                        label={element.title}
+                        value={element}
+                        icon={element.password && <LockRounded />}
+                        iconPosition={'top'}
+                        sx={{width: '150px', height: '150px', bgcolor: '#23252B', margin: '5px 0'}}
+                    />
+                )}
+            </Tabs>
+
+            <Stack width={'100%'} height={'100%'} justifyContent={'center'} alignItems={'center'}>
+                {(displayDocument && displayDocument.type === 'pdf') && <PDFViewers url={displayDocument.url} orientation={displayDocument.orientation} />}
                 {(displayDocument && displayDocument.type === 'audio') && <AudioPlayer audioFile={displayDocument} />}
                 {(displayDocument && displayDocument.type === 'video') && <VideoPlayer videoFile={displayDocument} />}
             </Stack>
@@ -137,6 +135,6 @@ function AllFiles() {
 function InvestigationReport() {
 
     return(
-        <PDFViewer url={rapportEnquete} orientation={'portrait'}/>
+        <PDFViewers url={rapportEnquete} orientation={'portrait'}/>
     );
 }

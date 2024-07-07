@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { pdfjs } from 'react-pdf';
@@ -13,6 +14,8 @@ import Game from "./pages/Game/Game";
 import Presentation from "./pages/Presentation/Presentation";
 import MyEscapeTheme from "./assets/muiTheme";
 
+import './assets/css/global.css';
+
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
     'pdfjs-dist/build/pdf.worker.min.js',
     import.meta.url,
@@ -24,7 +27,7 @@ root.render(
     <MyEscapeTheme>
       <Router>
         <Header />
-        <main style={{ maxWidth: '1024px', marginBottom: '50px', marginInline: 'auto', paddingTop: '90px'}}>
+        <main style={{ maxWidth: '1024px', marginBottom: '50px', marginInline: 'auto'}}>
           <Routes>
             <Route path='*' element={<PageNotFound />} />
             <Route path="/" element={<Home />} />

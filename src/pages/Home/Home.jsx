@@ -24,7 +24,7 @@ export default function Home() {
 
     return (
         <section>
-            <Stack alignItems={'center'} justifyContent={'center'} minHeight={'calc(100vh - 200px)'} mt={'50px'}>
+            <Stack alignItems={'center'} justifyContent={'center'} height={'calc(100vh - 140px)'}>
                 <Stack alignItems={'center'} flexDirection='row' gap={4} width={'100%'}>
                     <Stack sx={boxStyle}>
                         <img src={ConceptBackground} alt={'Concept img'} width={'115%'} loading="lazy"/>

@@ -6,35 +6,44 @@ import {
 const colorTheme = createTheme({
     palette: {
         primary: {
-            main: '#000407'
+            main: '#23252B'
         },
         secondary: {
-            main: '#79031D'
+            main: '#0E0E0E'
         },
-        third: {
+        action: {
             main: '#EDB518'
         },
         fourth: {
-            main: '#F5F7F7'
+            light: '#FFFFFF33',
+            main: '#FFFFFF',
+            grey: '#A0A0A0',
+            dark: '#141519'
         }
     }
 });
 
 const myEscapeTheme = createTheme(colorTheme, {
-    // typography: {
-    //     fontFamily: 'Quicksand, sans-serif'
-    // },
-    // components: {
-    //     MuiCssBaseline: {
-    //         styleOverrides: `
-    //             @font-face {
-    //                 font-family: 'Quicksand';
-    //                 font-weight: normal;
-    //                 src: local('Quicksand') local('Quicksand-Regular') url(${Quicksand}) format('truetype');
-    //             }
-    //         `
-    //     }
-    // }
+    typography: {},
+    components: {
+        MuiTabs: {
+            styleOverrides: {
+                indicator: {
+                    backgroundColor: colorTheme.palette.action.main
+                },
+            },
+        },
+        MuiTab: {
+            styleOverrides: {
+                root: {
+                    color: 'white',
+                    '&.Mui-selected': {
+                        color: colorTheme.palette.action.main
+                    }
+                }
+            }
+        },
+    }
 });
 
 export default function MyEscapeTheme(props) {

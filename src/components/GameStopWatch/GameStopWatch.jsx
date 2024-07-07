@@ -1,5 +1,5 @@
 
-import {TimerRounded} from "@mui/icons-material";
+import {TimerOutlined} from "@mui/icons-material";
 import {Button, Slide, Stack, Tooltip, Typography} from "@mui/material";
 import {forwardRef, useEffect, useState} from "react";
 import Dialog from "@mui/material/Dialog";
@@ -37,9 +37,9 @@ export default function GameStopWatch() {
             <Tooltip title={"Mettre le scénario en pause"}>
                 <Button
                     variant='contained'
-                    endIcon={<TimerRounded />}
-                    color='secondary'
-                    sx={{ position: 'fixed', bottom: 16, right: 16 }}
+                    startIcon={<TimerOutlined color={'fourth'}/>}
+                    color='action'
+                    sx={{position: 'fixed', bottom: 16, right: 16, color: 'fourth.main', fontWeight: 'bold'}}
                     onClick={gameStop}
                 >
                     {hours.toString().padStart(2, "0")}
