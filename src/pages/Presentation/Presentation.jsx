@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 export default function Presentation() {
 
     return (
-        <Stack component={'section'} alignItems={'center'} justifyContent={'center'}  height={'calc(100vh - 140px)'}>
+        <Stack component={'section'} alignItems={'center'} justifyContent={'center'}  height={'calc(100vh - 156px)'}>
             <Stack width={'100%'} flexDirection='row' gap={6}>
                 <Stack width={'40%'}>
                     <img src={poster} alt={'Affiche du scénario'} />

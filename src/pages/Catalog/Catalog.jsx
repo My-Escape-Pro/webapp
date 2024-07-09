@@ -19,12 +19,19 @@ export default function Catalog() {
         <section>
             <Stack gap={8} alignItems={'center'}>
                 {SCENARIO_LIST.map((scenario, index) =>
-                    <Stack key={'Catalog scenario : ' + scenario.name} flexDirection={index%2 === 0 ? 'row' : 'row-reverse'} gap={4} maxWidth={'800px'}>
+                    <Stack
+                        key={'Catalog scenario : ' + scenario.name}
+                        flexDirection={index%2 === 0 ? 'row' : 'row-reverse'}
+                        gap={4}
+                        maxWidth={'800px'}
+                    >
                         {scenario.img && <img src={scenario.img} alt={'Scenario epsilon'} width={'200px'}/>}
                         <Stack
                             justifyContent={'space-between'}
                         >
-                            <Typography textAlign='center' color={'fourth.main'} fontWeight={'bold'} fontSize={'1.5rem'}>{scenario.name}</Typography>
+                            <Typography textAlign='center' color={'fourth.main'} fontWeight={'bold'} fontSize={'1.5rem'}>
+                                {scenario.name}
+                            </Typography>
                             <Typography textAlign='justify' color={'fourth.main'} fontSize={'1rem'}>
                                 ASTRATECH SOLUTION est un groupe privé qui réalise des enquêtes et intervient dans
                                 le cadre de la disparition inexpliquée de vaisseaux dans tous les systèmes connus.
@@ -34,7 +41,11 @@ export default function Catalog() {
                             </Typography>
                             <Stack flexDirection='row' justifyContent={'space-between'}>
                                 <Link to={'/game'}>
-                                    <Button variant='contained' startIcon={<ShoppingCartOutlined color='fourth' />} color='action'>
+                                    <Button
+                                        variant='contained'
+                                        startIcon={<ShoppingCartOutlined color='fourth' />}
+                                        sx={{bgcolor: 'action.main', fontWeight: 'bold'}}
+                                    >
                                         19.99 €
                                     </Button>
                                 </Link>

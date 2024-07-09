@@ -1,6 +1,5 @@
 
 import {useState} from "react";
-import PDFViewers from "../../components/PDFViewer/PDFViewers";
 import PasswordFile from "../../components/PasswordModal/PasswordFile";
 import AudioPlayer from "../../components/AudioPlayer/AudioPlayer";
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
@@ -53,7 +52,7 @@ export default function Game() {
                         <Tab label="Rapport" value={'report'} />
                     </Tabs>
                 </Box>
-                <Stack flexDirection='row' gap={4} alignItems={'center'} height={'calc(100vh - 226px)'}>
+                <Stack flexDirection='row' gap={4} alignItems={'center'} justifyContent={'center'} height={'calc(100vh - 226px)'}>
                     {alignment === "start" && <StartFiles/>}
                     {alignment === "files" && <AllFiles/>}
                     {alignment === "report" && <InvestigationReport/>}
@@ -68,10 +67,10 @@ function StartFiles() {
 
     return(
         <>
-            <PDFViewers url={regleDuJeu} orientation={'portrait'}/>
+            <iframe src={regleDuJeu + '#toolbar=0&view=Fit'} width="780px" height="100%" style={{border: 0}}/>
             <iframe
                 width="100%" height="400px" src="https://www.youtube-nocookie.com/embed/8Zs51OlfU-A?si=ZUYqe2Ca02PkIKQg"
-                title="YouTube video player" frameBorder="0"
+                title="YouTube video player" style={{border: 0}}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
             />
@@ -124,7 +123,9 @@ function AllFiles() {
             </Tabs>
 
             <Stack width={'100%'} height={'100%'} justifyContent={'center'} alignItems={'center'}>
-                {(displayDocument && displayDocument.type === 'pdf') && <PDFViewers url={displayDocument.url} orientation={displayDocument.orientation} />}
+                {(displayDocument && displayDocument.type === 'pdf') &&
+                    <iframe src={displayDocument.url + '#toolbar=0&view=Fit'} width={displayDocument.orientation === 'landscape' ? '100%' : "500px"} height="100%" style={{border: 0}}/>
+                }
                 {(displayDocument && displayDocument.type === 'audio') && <AudioPlayer audioFile={displayDocument} />}
                 {(displayDocument && displayDocument.type === 'video') && <VideoPlayer videoFile={displayDocument} />}
             </Stack>
@@ -134,7 +135,10 @@ function AllFiles() {
 
 function InvestigationReport() {
 
-    return(
-        <PDFViewers url={rapportEnquete} orientation={'portrait'}/>
+    return (
+        <>
+            <iframe src={rapportEnquete + '#toolbar=0&view=Fit&page=1'} width="500px" height="100%" style={{border: 0}}/>
+            <iframe src={rapportEnquete + '#toolbar=0&view=Fit&page=2'} width="500px" height="100%" style={{border: 0}}/>
+        </>
     );
 }
